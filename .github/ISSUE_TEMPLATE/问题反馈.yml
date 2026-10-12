@@ -1,11 +1,11 @@
 name: 问题反馈
-description: 先读完排查方法再反馈
+description: 反馈 ProxyBox 的功能、兼容性与 UI 问题
 title: "[BUG] "
 body:
   - type: markdown
     attributes:
       value: |
-        **先读我**
+        **ProxyBox 是 Sub-Store 的 fork，请在本仓库反馈 ProxyBox 问题。**
 
         [排查方法](https://telegram.me/zhetengsha/218)
   - type: checkboxes
@@ -19,7 +19,7 @@ body:
     id: runtime
     attributes:
       label: 运行环境
-      description: 请选择主要出现问题的运行环境。⚠️ 非官方支持的版本, 请在对应版本的作者那里反馈. 比如 Cloudflare Workers 版, 请勿在此反馈
+      description: 请选择主要出现问题的运行环境。请同时填写 ProxyBox 的源码提交及前后端版本；第三方发行版的问题请向对应维护者反馈。
       multiple: false
       options:
         - Node.js

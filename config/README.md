@@ -1,6 +1,10 @@
-# Sub-Store 配置指南
+# ProxyBox · 上游兼容配置指南
 
-## 查看更新说明:
+> ProxyBox fork 自 Sub-Store。本文保留上游 App 模块的安装说明与协议契约；下列 Sub-Store 链接指向**上游版本**，不是 ProxyBox 发行包。ProxyBox UI 的 Node 部署请先阅读 [开发与部署](../docs/DEVELOPMENT.md)。不修改 rewrite 域名、环境变量或兼容脚本名。
+
+> `sub.store` 是 rewrite 使用的域名，不是项目拥有的公共服务；未命中 rewrite 时可能请求公网域名。ProxyBox Node 前端默认使用同源 `/backend`，不会默认连接该域名。App 版可通过 Host 映射到 `127.0.0.1`，使用前核实 rewrite 已生效。
+
+## 上游更新说明:
 
 Sub-Store Releases: [`https://github.com/sub-store-org/Sub-Store/releases`](https://github.com/sub-store-org/Sub-Store/releases)
 

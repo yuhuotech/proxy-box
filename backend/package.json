@@ -1,7 +1,7 @@
 {
-  "name": "sub-store",
+  "name": "proxy-box",
   "version": "2.42.3",
-  "description": "Advanced Subscription Manager for QX, Loon, Surge, Stash and Shadowrocket.",
+  "description": "ProxyBox subscription management engine, forked from Sub-Store.",
   "main": "src/main.js",
   "packageManager": "pnpm@11.0.9",
   "scripts": {

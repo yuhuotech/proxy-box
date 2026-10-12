@@ -142,3 +142,17 @@ CHANGELOG.md
 CODEMAP.md
 CONTEXT_BUNDLE.md
 mydocs
+# ProxyBox local data, source packages and UI build outputs
+frontend/public/source/
+frontend/dist/
+root.json
+root_*.json
+sub-store.json
+sub-store_*.json
+.env.local
+.env.*.local
+artifacts/
+
+# Local deployment secrets
+/.env
+/backend/.env

@@ -1,0 +1,15 @@
+{
+  "name": "proxy-box-workspace",
+  "private": true,
+  "packageManager": "pnpm@11.0.9",
+  "scripts": {
+    "check:upstream": "node tools/upstream.mjs check",
+    "test:ui": "node tools/browser-qa.cjs",
+    "test:tools": "node --test tools/upstream.test.mjs",
+    "icons": "node tools/generate-icons.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0",
+    "sharp": "0.35.5"
+  }
+}

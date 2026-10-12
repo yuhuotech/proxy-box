@@ -1,204 +1,120 @@
-<p align="center">
-<img src="https://raw.githubusercontent.com/cc63/ICON/main/Sub-Store.png" alt="Sub-Store" width="100">
-</p>
-<h1 align="center">Sub-Store</h1>
+<p align="center"><img src="assets/proxy-box.svg" width="76" alt="ProxyBox logo"></p>
+<h1 align="center">ProxyBox</h1>
+<p align="center">你的订阅，由你掌控。<br>一个现代、可自托管的订阅管理工作台。</p>
+<p align="center"><a href="#快速开始">快速开始</a> · <a href="docs/DEVELOPMENT.md">开发与部署</a> · <a href="docs/UPSTREAM.md">上游同步</a> · <a href="NOTICE.md">来源与许可</a></p>
 
-> Advanced Subscription Manager for QX, Loon, Surge, Stash, Egern and Shadowrocket
+> **ProxyBox fork 自 [SubStore / Sub-Store](https://github.com/sub-store-org/Sub-Store)，前端基于 [Sub-Store Frontend](https://github.com/sub-store-org/Sub-Store-Front-End)。本项目重构 UI，保留上游功能，并定期跟踪与对齐上游更新。它不是 Sub-Store 官方发行版。**
+>
+> 后端保留 **AGPL-3.0**，独立前端保留 **GPL-3.0**。原作者、许可证与第三方声明均保留；精确同步基线见 [upstream.json](upstream.json)，不以宣传代替实际兼容验证。
 
-[![Build](https://github.com/sub-store-org/Sub-Store/actions/workflows/main.yml/badge.svg)](https://github.com/sub-store-org/Sub-Store/actions/workflows/main.yml) ![GitHub](https://img.shields.io/github/license/sub-store-org/Sub-Store) ![GitHub issues](https://img.shields.io/github/issues/sub-store-org/Sub-Store) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/Peng-Ym/Sub-Store) ![Size](https://img.shields.io/github/languages/code-size/sub-store-org/Sub-Store)
-<br>
-<a href="https://trendshift.io/repositories/4572" target="_blank"><img src="https://trendshift.io/api/badge/repositories/4572" alt="sub-store-org%2FSub-Store | Trendshift" height="25"/></a>
-<a href="https://www.buymeacoffee.com/PengYM" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="25"/></a></a>
-[![联系推广](https://img.shields.io/badge/%E8%81%94%E7%B3%BB%E6%8E%A8%E5%B9%BF-26A5E4?style=flat&logo=telegram&logoColor=white)](https://t.me/xream_bot)
+## 一个工作台，管理完整订阅流程
 
-<table>
-<tbody>
-<tr>
-<td width="180"><a href="https://www.thordata.com/?ls=tg&lk=substore"><img src="./assets/banners/Thordata.png" alt="Thordata" width="150"></a></td>
-<td><a href="https://www.thordata.com/?ls=tg&lk=substore">Thordata</a> ｜面向开发者与出海用户的代理服务，提供<b>住宅、ISP、移动及数据中心代理</b>。支持国家/城市定位、轮换会话与粘性会话，适用于公开网页采集、SEO 监控、接口调试和地区内容测试。新用户 <a href="https://www.thordata.com/?ls=tg&lk=substore">注册</a> 即送 <b>100MB 免费住宅代理</b>，首购使用优惠码<b>【SubStore10】</b>享 9 折优惠。</td>
-</tr>
-<tr>
-<td width="180"><a href="https://api.muteki.site/register?aff=XREAM&promo=XREAM"><img src="./assets/banners/MaruCode.jpg" alt="MaruCode" width="150"></a></td>
-<td><a href="https://api.muteki.site/register?aff=XREAM&promo=XREAM">MaruCode</a> 是一家偶尔做做慈善的小破站 API，自营号池，不搞充值营销套路，主要提供 Codex、Claude Code、GPT Image-2 等主流模型，支持 WebSocket 协议，明码标价(Codex 0.3x, CC 1.5x)，透明汇率(1:1)，<a href="https://api.muteki.site/register?aff=XREAM&promo=XREAM">新用户注册</a> 送 2 刀 💰 <a href="https://images-2.muteki.site">生图工作台 🖼</a></td>
-</tr>
-</tbody>
-</table>
+| 能力 | 你可以做什么 |
+| --- | --- |
+| 订阅与组合 | 管理远程/本地订阅，合并多个来源，按标签整理与拖拽排序 |
+| 转换与处理 | 转换客户端格式，过滤、重命名、排序、去重、解析域名，以及脚本处理 |
+| 文件与配置 | 托管远程/本地文件，编辑响应，生成 mihomo 配置并添加订阅节点 |
+| 同步任务 | 生成订阅或文件产物，独立 Cron、批次同步与上游支持的 Gist 存储 |
+| 分享与归档 | 创建独立分享链接，管理有效期/访问次数，归档、恢复、下载历史资源 |
+| 运维与偏好 | 运行日志、请求与缓存设置、备份恢复、多后端管理、多语言与明暗主题 |
 
-📚 [文档/Doc](https://sub-store-org.github.io/doc) 🆕, [Wiki](https://github.com/sub-store-org/Sub-Store/wiki)
+支持 JSON、Stash、mihomo / Clash.Meta、Surge / SurgeMac、Loon、Egern、Shadowrocket、QX、Surfboard、sing-box、V2Ray 与 URI 等输出。具体协议支持以当前后端为准；高级参数和脚本继续使用 Sub-Store 的接口契约。
 
-## sub.store Domain Safety Notice
+## 界面预览
 
-### Statement
+桌面工作台采用固定侧栏、清晰的信息层次与资源卡片；手机保留带文字的底部导航。编辑器、选择器、弹框、预览、日志、空态和错误态共用统一设计。
 
-⚠️ `sub.store` is only the domain used by module-script rewrite MitM rules. It is not a public domain owned by us.
+![ProxyBox 桌面工作台](docs/screenshots/workspace-light.png)
 
-### Risk
+<details>
+<summary>查看暗色与手机界面</summary>
 
-If a request does not go through the rewrite, the data will be sent to the public `sub.store` service.
+![ProxyBox 暗色工作台](docs/screenshots/workspace-dark.png)
+<img src="docs/screenshots/workspace-mobile.png" width="320" alt="ProxyBox 手机工作台">
 
-You can map `sub.store` to `127.0.0.1` or another local address to prevent accidental access to the public `sub.store`. However, ordinary users may still send requests to the public `sub.store` after switching or toggling configuration modules.
+</details>
 
-1. It could, in theory, redirect users to a fake frontend. This is only a possibility and does not imply that the owner of `sub.store` would do this. Note: The official frontend is `https://sub-store.vercel.app`.
-2. It could receive user data from `sub.store`.
+预览使用隔离环境中的示例数据，不包含真实订阅或密钥。
 
-This creates a data leakage risk.
+## 快速开始
 
-### Plan
+准备 `.node-version` 指定的 Node.js 与 `pnpm@11.0.9`，在仓库根目录执行：
 
-After listening to suggestions from the group, we will not switch to a new domain for now. Choosing a new domain is also awkward: it needs to be related, short, and unlikely to be registered by someone else, at least in the short term.
-
-This notice is published only as an announcement. No changes will be made for now.
-
-Example:
-
-```
-[Host]
-sub.store = 127.0.0.1
+```bash
+corepack enable
+pnpm --dir backend install --frozen-lockfile
+pnpm --dir frontend install --frozen-lockfile
+pnpm --dir backend bundle:esbuild
+pnpm --dir frontend build
 ```
 
-### CORS Allowlist
+启动前后端合并服务：
 
-Sub-Store also supports a configurable browser CORS allowlist for the backend API. This does not change the module rewrite domain, but it limits which browser origins can read API responses through CORS.
-
-- Node/server deployments use `SUB_STORE_CORS_ALLOWED_ORIGINS`; the default is `https://sub-store.vercel.app,http://substore.stash,https://substore.stash`.
-- Proxy App modules use the `cors` module argument; the default is `https://sub-store.vercel.app,http://substore.stash,https://substore.stash`.
-- Multiple origins can be separated by commas. Origins are matched exactly by scheme, host, and port. Set the value to `*` only when you accept the risk of any website reading the local backend through browser CORS.
-
-## Node push notifications
-
-For Node deployments, `SUB_STORE_PUSH_SERVICE` accepts a Shoutrrr URL or an existing HTTP/HTTPS URL template. Shoutrrr URLs are sent in-process with [shoutrrr-ts](https://github.com/Delusions6515/shoutrrr-ts); a separate `shoutrrr` executable is no longer used or required. HTTP/HTTPS URL templates still use the existing request path and `[推送标题]` / `[推送内容]` placeholders.
-
-The supported Shoutrrr URL families are Generic Webhook (`generic://`, `generic+https://`, `generic+http://`), Bark, Discord, Gotify, Google Chat (`hangouts://` alias), IFTTT, Join, Mattermost, ntfy, OpsGenie, Pushover, Pushbullet, Rocket.Chat, Slack, Microsoft Teams, Telegram, and Zulip. **Matrix (`matrix://`) and SMTP (`smtp://`) are not supported, and there is no fallback to the old executable.** Check existing configurations before upgrading; unsupported URLs produce a notification error instead of sending. See [upstream compatibility details](https://github.com/Delusions6515/shoutrrr-ts/blob/main/COMPATIBILITY.md) for URL options and caveats. Upstream checks use local Go-compatibility fixtures, not verified live delivery to every provider. The backend's tested Node version is in `.node-version`; check the upstream package for its current Node support.
-
-Push URLs may contain secrets: treat `SUB_STORE_PUSH_SERVICE` as privileged configuration. Diagnostics from the Shoutrrr path do not print the configured URL. This change does not alter the HTTP/HTTPS URL template path or its existing logging behavior.
-
-## Core functionalities:
-
-1. Conversion among various formats.
-2. Subscription formatting.
-3. Collect multiple subscriptions in one URL.
-4. Host and modify subscriptions/files
-
-> The following descriptions of features may not be updated in real-time. Please refer to the actual available features for accurate information.
-
-## 1. Subscription Conversion
-
-### Supported Input Formats
-
-[本地节点怎么写/How To Write A Local Node](https://telegram.me/zhetengsha/824)
-
-> ⚠️ Do not use `Shadowrocket` or `NekoBox` to export URI and then import it as input. The URIs exported in this way may not be standard URIs. However, we have already supported some very common non-standard URIs (such as VMess, VLESS).
-
-- [x] Proxy URI Scheme(`socks5`, `socks5+tls`, `http`, `https`(it's ok))
-
-  example: `socks5+tls://user:pass@ip:port#name`
-
-- [x] URI(AnyTLS, SOCKS, SS, SSR, VMess, VLESS, Trojan, Hysteria, Hysteria 2, TUIC v5, WireGuard)
-  > Please note, HTTP(s) does not have a standard URI format, so it is not supported. Please use other formats.
-- [x] Clash Proxies YAML
-- [x] Clash Proxy JSON/JSON5/YAML(single line)
-  > [NaiveProxy](https://telegram.me/zhetengsha/4308)
-- [x] QX (SS, SSR, VMess, Trojan, HTTP, SOCKS5, VLESS, AnyTLS)
-- [x] Loon (SS, SSR, VMess, Trojan, HTTP, SOCKS5, SOCKS5-TLS, WireGuard, VLESS, Hysteria 2, AnyTLS)
-- [x] Surge (Direct, SS, VMess, Trojan, HTTP, HTTPS, HTTP/2 CONNECT, SOCKS5, SOCKS5-TLS, AnyTLS, TrustTunnel, TUIC, Snell, Hysteria 2, MASQUE(Surge), SSH(Password authentication only), External Proxy Program(only for macOS), WireGuard(Surge to Surge))
-- [x] mihomo(Clash.Meta) Compatible (Direct, SS, SSR, VMess, Trojan, HTTP, SOCKS5, Snell, VLESS, WireGuard, Hysteria, Hysteria 2, TUIC, SSH, mieru, sudoku, AnyTLS, MASQUE, Tailscale, GOST Relay, Shadow QUIC, ZeroTier, OpenVPN)
-
-Deprecated(The frontend doesn't show it, but the backend still supports it, with the query parameter `target=Clash`):
-
-- [x] Clash (SS, SSR, VMess, Trojan, HTTP, SOCKS5, Snell, VLESS, WireGuard)
-
-### Supported Target Platforms
-
-- [x] Plain JSON
-- [x] Stash
-- [x] Clash.Meta(mihomo)
-- [x] Surfboard
-- [x] Surge
-- [x] SurgeMac(Use mihomo to support protocols that are not supported by Surge itself)
-- [x] Loon
-- [x] Egern
-- [x] Shadowrocket
-- [x] QX
-- [x] sing-box
-- [x] V2Ray
-- [x] V2Ray URI
-
-Deprecated:
-
-- [x] Clash
-
-## 2. Subscription Formatting
-
-### Filtering
-
-- [x] **Regex filter**
-- [x] **Discard regex filter**
-- [x] **Region filter**
-- [x] **Type filter**
-- [x] **Useless proxies filter**
-- [x] **Script filter**
-
-### Proxy Operations
-
-- [x] **Set property operator**: set some proxy properties such as `udp`,`tfo`, `skip-cert-verify` etc.
-- [x] **Flag operator**: add flags or remove flags for proxies.
-- [x] **Sort operator**: sort proxies by name.
-- [x] **Regex sort operator**: sort proxies by keywords (fallback to normal sort).
-- [x] **Regex rename operator**: replace by regex in proxy names.
-- [x] **Regex delete operator**: delete by regex in proxy names.
-- [x] **Script operator**: modify proxy by script.
-- [x] **Resolve Domain Operator**: resolve the domain of nodes to an IP address.
-
-### Development
-
-Install `pnpm`
-
-Go to `backend` directories, install node dependencies:
-
-```
-pnpm i
+```bash
+SUB_STORE_BACKEND_API_HOST=127.0.0.1 \
+SUB_STORE_BACKEND_API_PORT=3000 \
+SUB_STORE_BACKEND_MERGE=true \
+SUB_STORE_FRONTEND_BACKEND_PATH=/backend \
+SUB_STORE_CORS_ALLOWED_ORIGINS=http://127.0.0.1:3000 \
+SUB_STORE_FRONTEND_PATH="$PWD/frontend/dist" \
+node backend/sub-store.min.js
 ```
 
+打开 **http://127.0.0.1:3000**。默认使用同源 `/backend`，不默认连接公网 `sub.store`。可以在“我的 → 后端管理”连接其他后端。`/backend` 是示例路径，不是鉴权机制；外网部署请配置 TLS、实际站点的 CORS origin、受保护的管理入口及持久化数据目录，详见 [部署说明](docs/DEVELOPMENT.md)。
+
+**兼容约定：** `SUB_STORE_*` 环境变量、API、数据键和 `sub-store.min.js` 等构建文件名继续保留，避免破坏已有脚本与模块。App 模块的上游下载地址仍指向上游版本，详见 [配置指南](config/README.md)。
+
+## 开发与验证
+
+```bash
+# 终端一
+cd backend
+SUB_STORE_BACKEND_API_HOST=127.0.0.1 \
+SUB_STORE_FRONTEND_BACKEND_PATH=/ \
+SUB_STORE_CORS_ALLOWED_ORIGINS=http://localhost:8888,http://127.0.0.1:8888 \
+pnpm esbuild:dev
+
+# 终端二，在仓库根目录
+pnpm --dir frontend dev
 ```
-SUB_STORE_BACKEND_API_PORT=3000 pnpm esbuild:dev
+
+访问 `http://localhost:8888`。前端开发代理默认连接 `127.0.0.1:3000`；端口已占用时可用 `VITE_BACKEND_PROXY` 配置代理目标。
+
+```bash
+pnpm --dir backend test
+pnpm --dir frontend check:locales
+pnpm --dir frontend build
 ```
 
-or this one if you're using `Termux`
+浏览器回归覆盖页面、桌面/手机、保存与失败恢复、转换预览、分享、归档、备份、明暗主题、许可证与源码入口；只能在隔离测试服务运行，详见 [UI 覆盖与验证](docs/UI-COVERAGE.md)。
 
-```
-SUB_STORE_BACKEND_API_PORT=3000 pnpm run --parallel "/^dev:.*/"
-```
+## 定期跟踪上游
 
-### Build
-
-```
-pnpm bundle:esbuild
+```bash
+node tools/upstream.mjs check
 ```
 
-## LICENSE
+工具分别检查前后端的最新提交；GitHub Actions 每周保存检查报告。后端保留共同 Git 历史进行 merge，前端按固定基线进行三方补丁合并，保留 ProxyBox UI 定制。更新需要复核冲突与功能，检查不会自动合并、强推或发版。完整操作见 [上游维护流程](docs/UPSTREAM.md)。
 
-This project is under the AGPL-3.0 LICENSE.
+## 项目结构
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPeng-YM%2FSub-Store.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPeng-YM%2FSub-Store?ref=badge_large)
+```text
+backend/       Sub-Store 兼容后端与测试
+frontend/      完整前端源码、ProxyBox UI 与原 GPL 许可
+config/        上游 App 模块与兼容配置说明
+scripts/       上游示例处理脚本
+tools/         上游检查、源码打包与浏览器验证
+docs/          开发、许可、同步、变更与验证文档
+AGENTS.md      后续开发必须遵守的项目约定
+upstream.json  两套上游的精确版本基线
+```
 
-## Star History
+## 来源、许可证与贡献
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/star-history/assets/my-star-history/star-history-dark.svg">
-  <img src="https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/star-history/assets/my-star-history/star-history-light.svg" alt="Star History">
-</picture>
+- 原作者与贡献者：Sub-Store / Sub-Store Frontend 团队，后端原作者 Peng-YM；其他作者署名保留在对应源码中。
+- 原始许可证：[AGPL-3.0](LICENSE)、[GPL-3.0](frontend/LICENSE)。软件不提供担保；可按适用许可证复制、修改与再分发。
+- ProxyBox 修改说明及日期：[NOTICE.md](NOTICE.md)、[修改记录](docs/CHANGELOG.md)。
+- 分发或运行修改后的网络服务时，须提供实际运行版本的对应源码。构建会生成源码包，界面页脚与关于页提供下载入口；部署方须验证链接可用及版本一致。详见 [许可合规说明](docs/LICENSE-COMPLIANCE.md)。
+- 贡献前请阅读 [贡献指南](CONTRIBUTING.md) 与 [AGENTS.md](AGENTS.md)；问题和改进在 [ProxyBox 仓库](https://github.com/yuhuotech/proxy-box) 讨论。
 
-## Acknowledgements
-
-- Special thanks to @KOP-XIAO for his awesome resource-parser. Please give a [star](https://github.com/KOP-XIAO/QuantumultX) for his great work!
-- Special thanks to @Orz-3 and @58xinian for their awesome icons.
-
-## Sponsors
-
-[![image](./support.nodeseek.com_page_promotion_id=8.png)](https://yxvm.com)
-
-[NodeSupport](https://github.com/NodeSeekDev/NodeSupport) sponsored this project.
-
-## 致谢
-
-感谢赞助商 [ForZTN](https://sponsorship.forztn.com/github/sub-store-org/Sub-Store) 对项目服务器的支持，感谢。
+感谢 Sub-Store 生态贡献者，以及原项目致谢的 KOP-XIAO、Orz-3、58xinian。上游技术参考：[文档](https://sub-store-org.github.io/doc)、[Wiki](https://github.com/sub-store-org/Sub-Store/wiki)。

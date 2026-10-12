@@ -1,0 +1,26 @@
+name: Check both upstream projects
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - name: Compare tracked baselines with upstream
+        env:
+          UPSTREAM_REPORT_PATH: upstream-report.json
+        run: node tools/upstream.mjs check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: upstream-report
+          path: upstream-report.json
+          retention-days: 30

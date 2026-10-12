@@ -1,0 +1,21 @@
+{
+  "backend": {
+    "url": "https://github.com/sub-store-org/Sub-Store.git",
+    "branch": "master",
+    "commit": "a3e61061e50b40e5c5938969aab915d05d8d7069",
+    "version": "2.42.3",
+    "directory": "."
+  },
+  "frontend": {
+    "url": "https://github.com/sub-store-org/Sub-Store-Front-End.git",
+    "branch": "master",
+    "commit": "4bd7b0acbe65466b933ccea14fc61dbebe036ead",
+    "version": "2.34.0",
+    "directory": "frontend",
+    "excludedPaths": [
+      ".github",
+      ".husky",
+      ".vscode"
+    ]
+  }
+}
