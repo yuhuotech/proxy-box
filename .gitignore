@@ -151,7 +151,7 @@ sub-store.json
 sub-store_*.json
 .env.local
 .env.*.local
-artifacts/
+/artifacts/
 
 # Local deployment secrets
 /.env

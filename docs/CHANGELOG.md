@@ -1,5 +1,10 @@
 # 修改记录
 
+## 2026-10-12 · 修复 CI 前端构建
+
+- 将测试产物的忽略规则限定到根目录 `/artifacts/`，避免排除同名的前端 API 源码目录。
+- 补交 `frontend/src/api/artifacts/index.ts`，恢复干净 checkout 中的同步任务 API 模块。
+
 ## 2026-10-11 · ProxyBox 初始二开
 
 - 后端基线 `a3e61061e50b40e5c5938969aab915d05d8d7069`；前端基线 `4bd7b0acbe65466b933ccea14fc61dbebe036ead`。
